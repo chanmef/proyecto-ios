@@ -101,16 +101,27 @@
                             <constraint firstItem="1Ye-NK-h6p" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="t7F-Le-EOD"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="9M8-I5-lGm"/>
+                    <navigationItem key="navigationItem" id="9M8-I5-lGm">
+                        <barButtonItem key="rightBarButtonItem" title="+" id="1io-pk-awI">
+                            <connections>
+                                <action selector="btnAgregar_Click:" destination="BYZ-38-t0r" id="962-zL-Q5m"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tblTabla" destination="1Ye-NK-h6p" id="Aee-nW-uA0"/>
+                        <segue destination="nwB-JF-vVA" kind="show" identifier="Detalle Segue" id="cfU-o2-Geh"/>
+                        <segue destination="F0I-iB-wPl" kind="show" identifier="Agregar Segue" id="fxJ-VP-qLc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="668" y="36"/>
         </scene>
-        <!--View Controller-->
+        <!--Detalle-->
         <scene sceneID="u1t-UH-RFA">
             <objects>
-                <viewController id="nwB-JF-vVA" sceneMemberID="viewController">
+                <viewController id="nwB-JF-vVA" customClass="detalle" customModule="Primerapp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Vbq-hu-6Ab"/>
                         <viewControllerLayoutGuide type="bottom" id="R4n-Z5-4OQ"/>
@@ -118,12 +129,87 @@
                     <view key="view" contentMode="scaleToFill" id="jay-CS-Kl1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XdU-2o-ITt">
+                                <rect key="frame" x="166" y="317" width="42" height="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XdU-2o-ITt" firstAttribute="centerY" secondItem="jay-CS-Kl1" secondAttribute="centerY" id="FNH-Ih-Wcd"/>
+                            <constraint firstItem="XdU-2o-ITt" firstAttribute="centerX" secondItem="jay-CS-Kl1" secondAttribute="centerX" id="jvz-YI-dtg"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="lblNombre" destination="XdU-2o-ITt" id="8MC-eP-mi8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q8f-EC-70h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1423" y="36"/>
+            <point key="canvasLocation" x="1421.5999999999999" y="35.532233883058474"/>
+        </scene>
+        <!--Agregar-->
+        <scene sceneID="cB4-cZ-s4R">
+            <objects>
+                <viewController id="F0I-iB-wPl" customClass="Agregar" customModule="Primerapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CGJ-WI-XEb"/>
+                        <viewControllerLayoutGuide type="bottom" id="jJP-Za-4cB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZqF-o7-HBJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7bP-Yb-wSB">
+                                <rect key="frame" x="16" y="127" width="337" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sre-QR-0b9">
+                                <rect key="frame" x="20" y="248" width="333" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nombre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QWf-6a-MIA">
+                                <rect key="frame" x="20" y="98" width="72" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Edad" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zyv-y3-5vU">
+                                <rect key="frame" x="20" y="219" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v5I-3J-ZVY">
+                                <rect key="frame" x="151" y="318" width="72" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Agregar"/>
+                                <connections>
+                                    <action selector="btnGuardar_Click:" destination="F0I-iB-wPl" eventType="touchUpInside" id="jIt-4R-U80"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="txtEdad" destination="sre-QR-0b9" id="Gj6-kj-MiB"/>
+                        <outlet property="txtNombre" destination="7bP-Yb-wSB" id="bmJ-4o-YNT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1NN-3U-Yns" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-103.2" y="-674.21289355322347"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kyc-Sj-v4D">

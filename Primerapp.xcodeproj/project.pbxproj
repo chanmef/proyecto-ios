@@ -13,6 +13,8 @@
 		081825791DF5D94900165D56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 081825781DF5D94900165D56 /* Assets.xcassets */; };
 		0818257C1DF5D94900165D56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0818257A1DF5D94900165D56 /* LaunchScreen.storyboard */; };
 		081825841DF5F76800165D56 /* FilaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081825831DF5F76800165D56 /* FilaTableViewCell.swift */; };
+		088C026A1DF71ADE005E50B3 /* detalle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088C02691DF71ADE005E50B3 /* detalle.swift */; };
+		089661981DF73A2700905CB3 /* Agregar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089661971DF73A2700905CB3 /* Agregar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		0818257B1DF5D94900165D56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0818257D1DF5D94900165D56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		081825831DF5F76800165D56 /* FilaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilaTableViewCell.swift; sourceTree = "<group>"; };
+		088C02691DF71ADE005E50B3 /* detalle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = detalle.swift; sourceTree = "<group>"; };
+		089661971DF73A2700905CB3 /* Agregar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Agregar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				0818257A1DF5D94900165D56 /* LaunchScreen.storyboard */,
 				0818257D1DF5D94900165D56 /* Info.plist */,
 				081825831DF5F76800165D56 /* FilaTableViewCell.swift */,
+				088C02691DF71ADE005E50B3 /* detalle.swift */,
+				089661971DF73A2700905CB3 /* Agregar.swift */,
 			);
 			path = Primerapp;
 			sourceTree = "<group>";
@@ -140,8 +146,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				081825741DF5D94900165D56 /* ViewController.swift in Sources */,
+				089661981DF73A2700905CB3 /* Agregar.swift in Sources */,
 				081825721DF5D94900165D56 /* AppDelegate.swift in Sources */,
 				081825841DF5F76800165D56 /* FilaTableViewCell.swift in Sources */,
+				088C026A1DF71ADE005E50B3 /* detalle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +311,7 @@
 				081825821DF5D94900165D56 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
