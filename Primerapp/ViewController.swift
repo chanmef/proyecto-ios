@@ -7,12 +7,32 @@
 //
 
 import UIKit
+import FBSDKLoginKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, DetalleViewControllerDelegate, AgregarViewControllerDelegate {
-        var datos = [("Alan",30), ("Erick",37), ("Alvaro",20), ("Denisse", 23), ("Enrique", 26)]
+        var datos = [("Alan",30), ("Erick",37), ("Alvaro",20), ("Denisse", 23), ("Enrique", 26), ("Alan",30), ("Erick",37), ("Alvaro",20), ("Denisse", 23), ("Enrique", 26), ("Alan",30), ("Erick",37), ("Alvaro",20), ("Denisse", 23), ("Enrique", 26), ("Alan",30), ("Erick",37), ("Alvaro",20), ("Denisse", 23), ("Enrique", 26), ("Alan",30), ("Erick",37), ("Alvaro",20), ("Denisse", 23), ("Enrique", 26), ("Alan",30), ("Erick",37), ("Alvaro",20), ("Denisse", 23), ("Enrique", 26), ("Alan",30), ("Erick",37), ("Alvaro",20), ("Denisse", 23), ("Enrique", 26), ("Alan",30), ("Erick",37), ("Alvaro",20), ("Denisse", 23), ("Enrique", 26), ("Alan",30), ("Erick",37), ("Alvaro",20), ("Denisse", 23), ("Enrique", 26)]
     
     var esEdicion = false
     
+    @IBAction func btnRefresh(_ sender: Any) {
+        
+        //let url = URL(string: "https://graph.facebook.com/1344787638894442/picture?type=large")
+        let idFacebook = FBSDKAccessToken.current().userID
+        let cadenaUrl = URL(string: "https://graph.facebook.com/\(idFacebook!)/picture?type=large")
+        let dato : Data?
+        
+        /*do{
+            dato = try Data(contentsOf: url!)
+            imgFoto.image = UIImage(data: dato!)
+        }catch{
+            print("Error cargando la imagen.! \(error.localizedDescription)")
+            dato = nil
+            imgFoto.image = UIImage(named: "androide")
+        }*/
+        
+        imgFoto.loadPicture(url: cadenaUrl)
+       
+    }
     @IBAction func btnAgregar_Click(_ sender: Any) {
         performSegue(withIdentifier: "Agregar Segue", sender: self)
     }
@@ -32,6 +52,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         print("vista cargada")
+        imgFoto.image = UIImage(named: "androide")
+        lblNombre.text = "Androide"
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,7 +61,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Dispose of any resources that can be recreated.
     }
     
+    @IBOutlet weak var imgFoto: UIImageView!
+    @IBOutlet weak var lblNombre: UILabel!
+    
     @IBOutlet weak var tblTabla: UITableView!
+    
     func numeroCambiado(numero: Int) {
         print("Numero cambiado: \(numero)")
         datos[numero].1 = datos[numero].1 + 1
@@ -78,11 +104,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let proto = (indexPath.row % 2 == 0) ? "proto1" :
-            "proto2"
+        //let proto = (indexPath.row % 2 == 0) ? "proto1" : "proto2"
         
-        let vista = tableView.dequeueReusableCell(withIdentifier: proto, for: indexPath) as! FilaTableViewCell
+        //let vista = tableView.dequeueReusableCell(withIdentifier: proto, for: indexPath) as! FilaTableViewCell
 
+        let vista = tableView.dequeueReusableCell(withIdentifier: "proto1", for: indexPath) as! FilaTableViewCell
         //vista.lblIzq.text = "Index!"
         //vista.lblIzq.text = datos.description
         //vista.lblDer.text = "\(indexPath.row)"
@@ -91,6 +117,21 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         vista.lblIzq.text = "\(datos[indexPath.row].0)"
         vista.lblDer.text = "\(datos[indexPath.row].1)"
         //}
+        
+        let idFacebook = FBSDKAccessToken.current().userID
+        let cadenaUrl = "https://graph.facebook.com/\(idFacebook!)/picture?type=large"
+        let dato : Data?
+        
+        /*do{
+            dato = try Data(contentsOf: url!)
+            vista.imgFotoFila.image = UIImage(data: dato!)
+        }catch{
+            print("Error cargando la imagen.! \(error.localizedDescription)")
+            dato = nil
+            vista.imgFotoFila.image = UIImage(named: "androide")
+        }*/
+        
+        vista.imgFotoFila.loadPicture(url: cadenaUrl)
         
         return vista
     }
