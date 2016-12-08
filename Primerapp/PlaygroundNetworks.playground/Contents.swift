@@ -46,3 +46,23 @@ extension Int {
         }
     }
 
+var message1 = "Hello Swift! How can I get started?"
+var message2 = "The best way to get started is to stop talking and code."
+
+message1.uppercased()
+message2.lowercased() + " Okay, I'm working on it  "
+
+if message1 == message2{
+    print("Es el mismo mensaje")
+}else{
+    print("No es el mismo mensaje")
+}
+
+let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 300, height: 50))
+messageLabel.text = message1
+messageLabel.backgroundColor = UIColor.blue
+messageLabel.textColor = UIColor.white
+messageLabel.textAlignment = NSTextAlignment.center
+messageLabel.layer.cornerRadius = 10.0
+messageLabel.clipsToBounds = true
+messageLabel

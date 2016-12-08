@@ -13,6 +13,7 @@
 		081825791DF5D94900165D56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 081825781DF5D94900165D56 /* Assets.xcassets */; };
 		0818257C1DF5D94900165D56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0818257A1DF5D94900165D56 /* LaunchScreen.storyboard */; };
 		081825841DF5F76800165D56 /* FilaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081825831DF5F76800165D56 /* FilaTableViewCell.swift */; };
+		08631EB01DF9EAFA00CF241A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 08631EAF1DF9EAFA00CF241A /* GoogleService-Info.plist */; };
 		0871CA7E1DF884EC0011885D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0871CA7D1DF884EC0011885D /* LoginViewController.swift */; };
 		0871CA811DF8B83A0011885D /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0871CA801DF8B83A0011885D /* UIImageViewExtension.swift */; };
 		088C026A1DF71ADE005E50B3 /* detalle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088C02691DF71ADE005E50B3 /* detalle.swift */; };
@@ -30,6 +31,7 @@
 		0818257B1DF5D94900165D56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0818257D1DF5D94900165D56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		081825831DF5F76800165D56 /* FilaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilaTableViewCell.swift; sourceTree = "<group>"; };
+		08631EAF1DF9EAFA00CF241A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0871CA7D1DF884EC0011885D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0871CA7F1DF8ABD20011885D /* PlaygroundNetworks.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = PlaygroundNetworks.playground; sourceTree = "<group>"; };
 		0871CA801DF8B83A0011885D /* UIImageViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 		081825701DF5D94900165D56 /* Primerapp */ = {
 			isa = PBXGroup;
 			children = (
+				08631EAF1DF9EAFA00CF241A /* GoogleService-Info.plist */,
 				081825711DF5D94900165D56 /* AppDelegate.swift */,
 				081825731DF5D94900165D56 /* ViewController.swift */,
 				081825751DF5D94900165D56 /* Main.storyboard */,
@@ -168,6 +171,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0818257C1DF5D94900165D56 /* LaunchScreen.storyboard in Resources */,
+				08631EB01DF9EAFA00CF241A /* GoogleService-Info.plist in Resources */,
 				081825791DF5D94900165D56 /* Assets.xcassets in Resources */,
 				081825771DF5D94900165D56 /* Main.storyboard in Resources */,
 			);
