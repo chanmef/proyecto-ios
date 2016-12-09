@@ -17,7 +17,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     var esEdicion = false
     
-    var arreglo : [(nombre: String, edad: Int, genero: String, foto: String)] = []
+    //var arreglo : [(nombre: String, edad: Int, genero: String, foto: String)] = []
+    
+    var arreglo : [Persona] = [Persona]()
     
     @IBAction func btnRefresh(_ sender: Any) {
         
@@ -67,7 +69,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         //lblNombre.text = "Androide"
         rootRef = FIRDatabase.database().reference()
         
-        sincronizar()
+        //sincronizar()
+        arreglo = Persona.selectTodos()
+        tblTabla.reloadData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -153,6 +157,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         let dato = arreglo[indexPath.row]
         
+        dato.edad = Int16(indexPath.row)
+        
         view.lblIzq.text = "\(dato.nombre)"
         view.lblDer.text = "\(dato.edad)"
         
@@ -162,7 +168,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             view.imgFotoFila.image = UIImage(named: "user_male")
         }
         
-        view.imgFotoFila.downloadData(url: dato.foto)
+        view.imgFotoFila.downloadData(url: dato.foto!)
         
         /*do{
             dato = try Data(contentsOf: url!)
@@ -261,7 +267,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             
             self.arreglo.removeAll()
             
-            for d in datos {
+            let agregados = Persona.agregarTodos(datos: datos)
+            
+            print("Se agregaron \(agregados) registros")
+            /*for d in datos {
                 let nombre = (d["nombre"] as! String)
                 let edad = (d["edad"] as! Int)
                 let genero = d["genero"] as! String
@@ -271,7 +280,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             }
             
             self.tblTabla.reloadData()
-            //self.image = UIImage.init(data: data!)
+            //self.image = UIImage.init(data: data!)*/
+            
+            self.arreglo = Persona.selectTodos()
+            print("Se leyeron \(self.arreglo.count) registros")
+            self.tblTabla.reloadData()
         })
         
         task.resume()
