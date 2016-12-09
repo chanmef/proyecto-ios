@@ -19,17 +19,19 @@ extension Persona {
     
     class func agregarTodos(datos: [Dictionary<String, Any?>]) -> (agregados: Int, modificados: Int, errores: Int) {
         var agregados = 0
-        var arrores = 0
+        var errores = 0
+        var modificados = 0
         
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
         for dato in datos
         {
-        let nombre = dato["nombre"] as? String ?? ""
-        let edad = dato["edad"] as? Int ?? -1
-        let genero = dato["genero"] as? String ?? ""
-        let foto = dato["foto"] as? String ?? ""
-        let id = dato["id"] as? Int ?? -1
+            
+            let nombre = dato["nombre"] as? String ?? ""
+            let edad = dato["edad"] as? Int ?? -1
+            let genero = dato["genero"] as? String ?? ""
+            let foto = dato["foto"] as? String ?? ""
+            let id = dato["id"] as? Int ?? -1
         
             if id == -1 {
                 errores = errores + 1
@@ -47,16 +49,27 @@ extension Persona {
         
                 print("Agregado Dato: \(nombre)")
         
-        do{
-            try context.save()
-        agregados = agregados + 1
-        }catch{
+                do{
+                    
+                    if persona.isUpdated {
+                        print("Actualizando Dato: \(nombre)")
+                        modificados = modificados + 1
+                    }else {
+                        print("Agregando Dato: \(nombre)")
+                        modificados = modificados + 1
+
+                    }
+                    
+                    try context.save()
+                    agregados = agregados + 1
+                }catch{
                     print("error guardando \(nombre)")
                 }
         
             }
-        return agregados
+        
         }
+        return (agregados, modificados, errores)
     }
     
     class func selectTodos () -> [Persona]{
